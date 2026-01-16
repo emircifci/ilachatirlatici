@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası - İlaç Hatırlatıcı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Privacy Policy - Med Reminder</title>
     <style>
         :root {
-            --primary: #10B981;
-            --bg-dark: #000000;
-            --bg-card: #111111;
-            --text-primary: #FFFFFF;
-            --text-secondary: #9CA3AF;
+            --primary: #6366F1;
+            --bg: #0F0F1A;
+            --card: #1A1A2E;
+            --text: #F8FAFC;
+            --muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -22,219 +22,466 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.8;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .logo {
+        .lang-selector {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-primary);
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--card);
+            border-radius: 16px;
+            justify-content: center;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 8rem 2rem 4rem;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #10B981, #3B82F6);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), #A855F7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .last-updated {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
+        .updated {
+            color: var(--muted);
+            margin-bottom: 30px;
+            font-size: 14px;
         }
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin: 30px 0 15px;
             color: var(--primary);
         }
 
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+        p,
+        li {
+            color: var(--muted);
+            margin-bottom: 15px;
         }
 
         ul {
-            color: var(--text-secondary);
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
+            margin-left: 20px;
         }
 
         .card {
-            background: var(--bg-card);
+            background: var(--card);
+            padding: 25px;
             border-radius: 16px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
+            margin-bottom: 20px;
         }
 
         a {
             color: var(--primary);
-            text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                padding: 6rem 1rem 3rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html" class="logo">
-            <span>💊</span>
-            <span>İlaç Hatırlatıcı</span>
-        </a>
-    </nav>
-
-    <main class="content">
-        <h1>Gizlilik Politikası</h1>
-        <p class="last-updated">Son güncelleme: 16 Ocak 2025</p>
-
-        <p>İlaç Hatırlatıcı uygulaması olarak gizliliğinize saygı duyuyor ve kişisel verilerinizi korumayı taahhüt
-            ediyoruz. Bu gizlilik politikası, uygulamamızı kullanırken hangi bilgilerin toplandığını, nasıl
-            kullanıldığını ve nasıl korunduğunu açıklamaktadır.</p>
-
-        <h2>1. Toplanan Bilgiler</h2>
-
-        <div class="card">
-            <h3>📱 Cihazda Saklanan Veriler</h3>
-            <p>Aşağıdaki bilgiler yalnızca cihazınızda saklanır ve sunucularımıza gönderilmez:</p>
-            <ul>
-                <li>İlaç isimleri ve dozaj bilgileri</li>
-                <li>Hatırlatma zamanları</li>
-                <li>İlaç alma geçmişi</li>
-                <li>Uygulama tercihleri</li>
-            </ul>
+    <div class="container">
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="showLang('tr')">🇹🇷 Türkçe</button>
+            <button class="lang-btn" onclick="showLang('en')">🇬🇧 English</button>
+            <button class="lang-btn" onclick="showLang('de')">🇩🇪 Deutsch</button>
+            <button class="lang-btn" onclick="showLang('es')">🇪🇸 Español</button>
+            <button class="lang-btn" onclick="showLang('fr')">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="showLang('ar')">🇸🇦 العربية</button>
+            <button class="lang-btn" onclick="showLang('ja')">🇯🇵 日本語</button>
+            <button class="lang-btn" onclick="showLang('ko')">🇰🇷 한국어</button>
+            <button class="lang-btn" onclick="showLang('pt')">🇧🇷 Português</button>
+            <button class="lang-btn" onclick="showLang('it')">🇮🇹 Italiano</button>
         </div>
 
-        <div class="card">
-            <h3>☁️ Bulut Senkronizasyon (İsteğe Bağlı)</h3>
-            <p>Bulut senkronizasyonu etkinleştirdiğinizde:</p>
-            <ul>
-                <li>E-posta adresiniz (hesap oluşturma için)</li>
-                <li>İlaç verileriniz (şifrelenmiş olarak)</li>
-            </ul>
+        <!-- TURKISH -->
+        <div id="tr" class="content active">
+            <div class="card">
+                <h1>Gizlilik Politikası</h1>
+                <p class="updated">Son güncelleme: Ocak 2026</p>
+
+                <h2><span class="emoji">📱</span>Giriş</h2>
+                <p>İlaç Hatırlatıcım uygulaması ("Uygulama") olarak gizliliğinize saygı duyuyoruz. Bu politika, kişisel
+                    verilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.</p>
+
+                <h2><span class="emoji">📊</span>Topladığımız Veriler</h2>
+                <ul>
+                    <li><strong>İlaç Bilgileri:</strong> İlaç adları, dozajlar, hatırlatma saatleri</li>
+                    <li><strong>Aile Profilleri:</strong> İsimler, yaş, ilişki bilgileri</li>
+                    <li><strong>Doktor Bilgileri:</strong> Doktor adları, uzmanlıklar, iletişim bilgileri</li>
+                    <li><strong>Hesap Bilgileri:</strong> E-posta adresi (opsiyonel, bulut senkronizasyonu için)</li>
+                    <li><strong>Kullanım Verileri:</strong> Uygulama kullanım istatistikleri (anonim)</li>
+                </ul>
+
+                <h2><span class="emoji">🎯</span>Verilerin Kullanımı</h2>
+                <ul>
+                    <li>İlaç hatırlatmalarını göndermek</li>
+                    <li>Uygulamayı geliştirmek</li>
+                    <li>Bulut senkronizasyonu sağlamak</li>
+                    <li>Kişiselleştirilmiş deneyim sunmak</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Veri Güvenliği</h2>
+                <p>Verileriniz endüstri standardı şifreleme ile korunmaktadır. Bulut senkronizasyonu için Supabase
+                    altyapısı kullanılmaktadır.</p>
+
+                <h2><span class="emoji">🤝</span>Üçüncü Taraf Hizmetleri</h2>
+                <ul>
+                    <li><strong>Firebase:</strong> Analitik ve çökme raporlaması</li>
+                    <li><strong>Supabase:</strong> Bulut senkronizasyonu</li>
+                    <li><strong>RevenueCat:</strong> Abonelik yönetimi</li>
+                    <li><strong>Google AdMob:</strong> Reklamlar (ücretsiz sürüm)</li>
+                </ul>
+
+                <h2><span class="emoji">🗑️</span>Veri Silme</h2>
+                <p>Hesabınızı ve tüm verilerinizi istediğiniz zaman Ayarlar > Hesap > Hesabı Sil bölümünden
+                    silebilirsiniz.</p>
+
+                <h2><span class="emoji">📧</span>İletişim</h2>
+                <p>Sorularınız için: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>💳 Satın Alma Bilgileri</h3>
-            <p>Premium abonelik işlemleri Apple tarafından gerçekleştirilir. Ödeme bilgilerinize erişimimiz yoktur.</p>
+        <!-- ENGLISH -->
+        <div id="en" class="content">
+            <div class="card">
+                <h1>Privacy Policy</h1>
+                <p class="updated">Last updated: January 2026</p>
+
+                <h2><span class="emoji">📱</span>Introduction</h2>
+                <p>Med Reminder ("App") respects your privacy. This policy explains how we collect, use, and protect
+                    your personal data.</p>
+
+                <h2><span class="emoji">📊</span>Data We Collect</h2>
+                <ul>
+                    <li><strong>Medication Information:</strong> Medication names, dosages, reminder times</li>
+                    <li><strong>Family Profiles:</strong> Names, ages, relationship information</li>
+                    <li><strong>Doctor Information:</strong> Doctor names, specialties, contact details</li>
+                    <li><strong>Account Information:</strong> Email address (optional, for cloud sync)</li>
+                    <li><strong>Usage Data:</strong> App usage statistics (anonymous)</li>
+                </ul>
+
+                <h2><span class="emoji">🎯</span>How We Use Data</h2>
+                <ul>
+                    <li>Send medication reminders</li>
+                    <li>Improve the app</li>
+                    <li>Provide cloud synchronization</li>
+                    <li>Offer personalized experience</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Data Security</h2>
+                <p>Your data is protected with industry-standard encryption. We use Supabase infrastructure for cloud
+                    synchronization.</p>
+
+                <h2><span class="emoji">🤝</span>Third-Party Services</h2>
+                <ul>
+                    <li><strong>Firebase:</strong> Analytics and crash reporting</li>
+                    <li><strong>Supabase:</strong> Cloud synchronization</li>
+                    <li><strong>RevenueCat:</strong> Subscription management</li>
+                    <li><strong>Google AdMob:</strong> Advertisements (free version)</li>
+                </ul>
+
+                <h2><span class="emoji">🗑️</span>Data Deletion</h2>
+                <p>You can delete your account and all data at any time via Settings > Account > Delete Account.</p>
+
+                <h2><span class="emoji">📧</span>Contact</h2>
+                <p>For questions: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
         </div>
 
-        <h2>2. Bilgilerin Kullanımı</h2>
-        <p>Toplanan bilgiler yalnızca şu amaçlarla kullanılır:</p>
-        <ul>
-            <li>İlaç hatırlatma bildirimlerini göndermek</li>
-            <li>Verilerinizi cihazlar arasında senkronize etmek</li>
-            <li>Uygulama deneyimini iyileştirmek</li>
-            <li>Teknik sorunları çözmek</li>
-        </ul>
+        <!-- GERMAN -->
+        <div id="de" class="content">
+            <div class="card">
+                <h1>Datenschutzrichtlinie</h1>
+                <p class="updated">Letzte Aktualisierung: Januar 2026</p>
 
-        <h2>3. Veri Güvenliği</h2>
-        <p>Verilerinizi korumak için aşağıdaki önlemleri alıyoruz:</p>
-        <ul>
-            <li>Tüm bulut verileri şifrelenerek saklanır</li>
-            <li>Güvenli HTTPS bağlantıları kullanılır</li>
-            <li>Erişim kontrolleri uygulanır</li>
-            <li>Düzenli güvenlik güncellemeleri yapılır</li>
-        </ul>
+                <h2><span class="emoji">📱</span>Einführung</h2>
+                <p>Medikamenten-Erinnerung ("App") respektiert Ihre Privatsphäre. Diese Richtlinie erklärt, wie wir Ihre
+                    persönlichen Daten sammeln, verwenden und schützen.</p>
 
-        <h2>4. Üçüncü Taraf Hizmetler</h2>
-        <p>Uygulamamız aşağıdaki üçüncü taraf hizmetleri kullanmaktadır:</p>
-        <ul>
-            <li><strong>Supabase:</strong> Kimlik doğrulama ve veri depolama</li>
-            <li><strong>RevenueCat:</strong> Abonelik yönetimi</li>
-            <li><strong>Apple:</strong> Uygulama içi satın almalar ve bildirimler</li>
-        </ul>
+                <h2><span class="emoji">📊</span>Daten, die wir sammeln</h2>
+                <ul>
+                    <li><strong>Medikamenteninformationen:</strong> Medikamentennamen, Dosierungen, Erinnerungszeiten
+                    </li>
+                    <li><strong>Familienprofile:</strong> Namen, Alter, Beziehungsinformationen</li>
+                    <li><strong>Arztinformationen:</strong> Arztnamen, Fachgebiete, Kontaktdaten</li>
+                    <li><strong>Kontoinformationen:</strong> E-Mail-Adresse (optional, für Cloud-Sync)</li>
+                    <li><strong>Nutzungsdaten:</strong> App-Nutzungsstatistiken (anonym)</li>
+                </ul>
 
-        <h2>5. Veri Saklama ve Silme</h2>
-        <p>Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı silmek istediğinizde:</p>
-        <ul>
-            <li>Ayarlar → Hesabı Sil seçeneğini kullanın</li>
-            <li>Tüm bulut verileriniz kalıcı olarak silinecektir</li>
-            <li>Cihazınızdaki yerel veriler uygulamayı kaldırdığınızda silinir</li>
-        </ul>
+                <h2><span class="emoji">🎯</span>Wie wir Daten verwenden</h2>
+                <ul>
+                    <li>Medikamentenerinnerungen senden</li>
+                    <li>Die App verbessern</li>
+                    <li>Cloud-Synchronisierung bereitstellen</li>
+                    <li>Personalisierte Erfahrung bieten</li>
+                </ul>
 
-        <h2>6. Çocukların Gizliliği</h2>
-        <p>Uygulamamız 13 yaşından küçük çocuklara yönelik değildir. Bilerek 13 yaşından küçük çocuklardan kişisel bilgi
-            toplamayız.</p>
+                <h2><span class="emoji">🔒</span>Datensicherheit</h2>
+                <p>Ihre Daten werden mit branchenüblicher Verschlüsselung geschützt. Wir verwenden
+                    Supabase-Infrastruktur für die Cloud-Synchronisierung.</p>
 
-        <h2>7. Değişiklikler</h2>
-        <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler olması durumunda sizi uygulama
-            içinden bilgilendireceğiz.</p>
+                <h2><span class="emoji">🗑️</span>Datenlöschung</h2>
+                <p>Sie können Ihr Konto und alle Daten jederzeit über Einstellungen > Konto > Konto löschen entfernen.
+                </p>
 
-        <h2>8. İletişim</h2>
-        <p>Gizlilik politikamız hakkında sorularınız varsa bizimle iletişime geçebilirsiniz:</p>
-        <p><strong>E-posta:</strong> <a href="mailto:emrhncfc@icloud.com">emrhncfc@icloud.com</a></p>
-    </main>
+                <h2><span class="emoji">📧</span>Kontakt</h2>
+                <p>Bei Fragen: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
 
-    <footer>
-        <p>© 2025 İlaç Hatırlatıcı. Tüm hakları saklıdır.</p>
-        <p style="margin-top: 0.5rem;"><a href="index.html">Ana Sayfa</a> · <a href="terms.html">Kullanım Koşulları</a>
-        </p>
-    </footer>
+        <!-- SPANISH -->
+        <div id="es" class="content">
+            <div class="card">
+                <h1>Política de Privacidad</h1>
+                <p class="updated">Última actualización: Enero 2026</p>
+
+                <h2><span class="emoji">📱</span>Introducción</h2>
+                <p>Recordatorio de Medicamentos ("App") respeta tu privacidad. Esta política explica cómo recopilamos,
+                    usamos y protegemos tus datos personales.</p>
+
+                <h2><span class="emoji">📊</span>Datos que Recopilamos</h2>
+                <ul>
+                    <li><strong>Información de Medicamentos:</strong> Nombres, dosis, horarios de recordatorio</li>
+                    <li><strong>Perfiles Familiares:</strong> Nombres, edades, información de parentesco</li>
+                    <li><strong>Información de Médicos:</strong> Nombres, especialidades, datos de contacto</li>
+                    <li><strong>Información de Cuenta:</strong> Correo electrónico (opcional, para sincronización)</li>
+                    <li><strong>Datos de Uso:</strong> Estadísticas de uso (anónimas)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Seguridad de Datos</h2>
+                <p>Tus datos están protegidos con encriptación estándar de la industria.</p>
+
+                <h2><span class="emoji">🗑️</span>Eliminación de Datos</h2>
+                <p>Puedes eliminar tu cuenta y todos los datos en cualquier momento desde Configuración > Cuenta >
+                    Eliminar Cuenta.</p>
+
+                <h2><span class="emoji">📧</span>Contacto</h2>
+                <p>Para preguntas: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- FRENCH -->
+        <div id="fr" class="content">
+            <div class="card">
+                <h1>Politique de Confidentialité</h1>
+                <p class="updated">Dernière mise à jour: Janvier 2026</p>
+
+                <h2><span class="emoji">📱</span>Introduction</h2>
+                <p>Rappel de Médicaments ("App") respecte votre vie privée. Cette politique explique comment nous
+                    collectons, utilisons et protégeons vos données personnelles.</p>
+
+                <h2><span class="emoji">📊</span>Données Collectées</h2>
+                <ul>
+                    <li><strong>Informations sur les Médicaments:</strong> Noms, dosages, heures de rappel</li>
+                    <li><strong>Profils Familiaux:</strong> Noms, âges, liens de parenté</li>
+                    <li><strong>Informations Médecin:</strong> Noms, spécialités, coordonnées</li>
+                    <li><strong>Informations de Compte:</strong> E-mail (optionnel, pour synchronisation)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Sécurité des Données</h2>
+                <p>Vos données sont protégées par un chiffrement aux normes de l'industrie.</p>
+
+                <h2><span class="emoji">🗑️</span>Suppression des Données</h2>
+                <p>Vous pouvez supprimer votre compte à tout moment via Paramètres > Compte > Supprimer le Compte.</p>
+
+                <h2><span class="emoji">📧</span>Contact</h2>
+                <p>Pour vos questions: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- ARABIC -->
+        <div id="ar" class="content" dir="rtl">
+            <div class="card">
+                <h1>سياسة الخصوصية</h1>
+                <p class="updated">آخر تحديث: يناير 2026</p>
+
+                <h2><span class="emoji">📱</span>مقدمة</h2>
+                <p>تطبيق تذكير الأدوية ("التطبيق") يحترم خصوصيتك. توضح هذه السياسة كيف نجمع ونستخدم ونحمي بياناتك
+                    الشخصية.</p>
+
+                <h2><span class="emoji">📊</span>البيانات التي نجمعها</h2>
+                <ul>
+                    <li><strong>معلومات الأدوية:</strong> أسماء الأدوية، الجرعات، أوقات التذكير</li>
+                    <li><strong>ملفات العائلة:</strong> الأسماء، الأعمار، معلومات القرابة</li>
+                    <li><strong>معلومات الطبيب:</strong> أسماء الأطباء، التخصصات، معلومات الاتصال</li>
+                    <li><strong>معلومات الحساب:</strong> البريد الإلكتروني (اختياري، للمزامنة)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>أمان البيانات</h2>
+                <p>بياناتك محمية بتشفير معياري في الصناعة.</p>
+
+                <h2><span class="emoji">🗑️</span>حذف البيانات</h2>
+                <p>يمكنك حذف حسابك وجميع البيانات في أي وقت عبر الإعدادات > الحساب > حذف الحساب.</p>
+
+                <h2><span class="emoji">📧</span>اتصل بنا</h2>
+                <p>للأسئلة: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- JAPANESE -->
+        <div id="ja" class="content">
+            <div class="card">
+                <h1>プライバシーポリシー</h1>
+                <p class="updated">最終更新日：2026年1月</p>
+
+                <h2><span class="emoji">📱</span>はじめに</h2>
+                <p>お薬リマインダー（「アプリ」）はお客様のプライバシーを尊重します。本ポリシーは、個人データの収集、使用、保護について説明します。</p>
+
+                <h2><span class="emoji">📊</span>収集するデータ</h2>
+                <ul>
+                    <li><strong>お薬情報：</strong>お薬の名前、用量、リマインダー時間</li>
+                    <li><strong>家族プロフィール：</strong>名前、年齢、続柄</li>
+                    <li><strong>医師情報：</strong>医師名、専門、連絡先</li>
+                    <li><strong>アカウント情報：</strong>メールアドレス（同期用、任意）</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>データセキュリティ</h2>
+                <p>お客様のデータは業界標準の暗号化で保護されています。</p>
+
+                <h2><span class="emoji">🗑️</span>データ削除</h2>
+                <p>設定 > アカウント > アカウント削除からいつでも削除できます。</p>
+
+                <h2><span class="emoji">📧</span>お問い合わせ</h2>
+                <p>ご質問は: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- KOREAN -->
+        <div id="ko" class="content">
+            <div class="card">
+                <h1>개인정보 처리방침</h1>
+                <p class="updated">최종 업데이트: 2026년 1월</p>
+
+                <h2><span class="emoji">📱</span>소개</h2>
+                <p>복약 알리미("앱")는 귀하의 개인정보를 존중합니다. 본 방침은 개인 데이터를 수집, 사용 및 보호하는 방법을 설명합니다.</p>
+
+                <h2><span class="emoji">📊</span>수집하는 데이터</h2>
+                <ul>
+                    <li><strong>약 정보:</strong> 약 이름, 용량, 알림 시간</li>
+                    <li><strong>가족 프로필:</strong> 이름, 나이, 관계</li>
+                    <li><strong>의사 정보:</strong> 의사 이름, 전문 분야, 연락처</li>
+                    <li><strong>계정 정보:</strong> 이메일 주소(동기화용, 선택사항)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>데이터 보안</h2>
+                <p>귀하의 데이터는 업계 표준 암호화로 보호됩니다.</p>
+
+                <h2><span class="emoji">🗑️</span>데이터 삭제</h2>
+                <p>설정 > 계정 > 계정 삭제에서 언제든지 삭제할 수 있습니다.</p>
+
+                <h2><span class="emoji">📧</span>문의</h2>
+                <p>문의사항: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- PORTUGUESE -->
+        <div id="pt" class="content">
+            <div class="card">
+                <h1>Política de Privacidade</h1>
+                <p class="updated">Última atualização: Janeiro 2026</p>
+
+                <h2><span class="emoji">📱</span>Introdução</h2>
+                <p>Lembrete de Medicamentos ("App") respeita sua privacidade. Esta política explica como coletamos,
+                    usamos e protegemos seus dados pessoais.</p>
+
+                <h2><span class="emoji">📊</span>Dados que Coletamos</h2>
+                <ul>
+                    <li><strong>Informações de Medicamentos:</strong> Nomes, dosagens, horários de lembrete</li>
+                    <li><strong>Perfis Familiares:</strong> Nomes, idades, informações de parentesco</li>
+                    <li><strong>Informações do Médico:</strong> Nomes, especialidades, contatos</li>
+                    <li><strong>Informações da Conta:</strong> E-mail (opcional, para sincronização)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Segurança dos Dados</h2>
+                <p>Seus dados são protegidos com criptografia padrão da indústria.</p>
+
+                <h2><span class="emoji">🗑️</span>Exclusão de Dados</h2>
+                <p>Você pode excluir sua conta a qualquer momento em Configurações > Conta > Excluir Conta.</p>
+
+                <h2><span class="emoji">📧</span>Contato</h2>
+                <p>Dúvidas: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+
+        <!-- ITALIAN -->
+        <div id="it" class="content">
+            <div class="card">
+                <h1>Informativa sulla Privacy</h1>
+                <p class="updated">Ultimo aggiornamento: Gennaio 2026</p>
+
+                <h2><span class="emoji">📱</span>Introduzione</h2>
+                <p>Promemoria Farmaci ("App") rispetta la tua privacy. Questa informativa spiega come raccogliamo,
+                    utilizziamo e proteggiamo i tuoi dati personali.</p>
+
+                <h2><span class="emoji">📊</span>Dati che Raccogliamo</h2>
+                <ul>
+                    <li><strong>Informazioni sui Farmaci:</strong> Nomi, dosaggi, orari di promemoria</li>
+                    <li><strong>Profili Familiari:</strong> Nomi, età, informazioni di parentela</li>
+                    <li><strong>Informazioni Medico:</strong> Nomi, specialità, contatti</li>
+                    <li><strong>Informazioni Account:</strong> Email (opzionale, per sincronizzazione)</li>
+                </ul>
+
+                <h2><span class="emoji">🔒</span>Sicurezza dei Dati</h2>
+                <p>I tuoi dati sono protetti con crittografia standard del settore.</p>
+
+                <h2><span class="emoji">🗑️</span>Cancellazione dei Dati</h2>
+                <p>Puoi eliminare il tuo account in qualsiasi momento da Impostazioni > Account > Elimina Account.</p>
+
+                <h2><span class="emoji">📧</span>Contatto</h2>
+                <p>Per domande: <a href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(lang).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>
