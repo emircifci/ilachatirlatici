@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - İlaç Hatırlatıcı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --bg-dark: #000000;
+            --bg-card: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 6rem 1rem 3rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <span>💊</span>
+            <span>İlaç Hatırlatıcı</span>
+        </a>
+    </nav>
+
+    <main class="content">
+        <h1>Gizlilik Politikası</h1>
+        <p class="last-updated">Son güncelleme: 16 Ocak 2025</p>
+
+        <p>İlaç Hatırlatıcı uygulaması olarak gizliliğinize saygı duyuyor ve kişisel verilerinizi korumayı taahhüt
+            ediyoruz. Bu gizlilik politikası, uygulamamızı kullanırken hangi bilgilerin toplandığını, nasıl
+            kullanıldığını ve nasıl korunduğunu açıklamaktadır.</p>
+
+        <h2>1. Toplanan Bilgiler</h2>
+
+        <div class="card">
+            <h3>📱 Cihazda Saklanan Veriler</h3>
+            <p>Aşağıdaki bilgiler yalnızca cihazınızda saklanır ve sunucularımıza gönderilmez:</p>
+            <ul>
+                <li>İlaç isimleri ve dozaj bilgileri</li>
+                <li>Hatırlatma zamanları</li>
+                <li>İlaç alma geçmişi</li>
+                <li>Uygulama tercihleri</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>☁️ Bulut Senkronizasyon (İsteğe Bağlı)</h3>
+            <p>Bulut senkronizasyonu etkinleştirdiğinizde:</p>
+            <ul>
+                <li>E-posta adresiniz (hesap oluşturma için)</li>
+                <li>İlaç verileriniz (şifrelenmiş olarak)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>💳 Satın Alma Bilgileri</h3>
+            <p>Premium abonelik işlemleri Apple tarafından gerçekleştirilir. Ödeme bilgilerinize erişimimiz yoktur.</p>
+        </div>
+
+        <h2>2. Bilgilerin Kullanımı</h2>
+        <p>Toplanan bilgiler yalnızca şu amaçlarla kullanılır:</p>
+        <ul>
+            <li>İlaç hatırlatma bildirimlerini göndermek</li>
+            <li>Verilerinizi cihazlar arasında senkronize etmek</li>
+            <li>Uygulama deneyimini iyileştirmek</li>
+            <li>Teknik sorunları çözmek</li>
+        </ul>
+
+        <h2>3. Veri Güvenliği</h2>
+        <p>Verilerinizi korumak için aşağıdaki önlemleri alıyoruz:</p>
+        <ul>
+            <li>Tüm bulut verileri şifrelenerek saklanır</li>
+            <li>Güvenli HTTPS bağlantıları kullanılır</li>
+            <li>Erişim kontrolleri uygulanır</li>
+            <li>Düzenli güvenlik güncellemeleri yapılır</li>
+        </ul>
+
+        <h2>4. Üçüncü Taraf Hizmetler</h2>
+        <p>Uygulamamız aşağıdaki üçüncü taraf hizmetleri kullanmaktadır:</p>
+        <ul>
+            <li><strong>Supabase:</strong> Kimlik doğrulama ve veri depolama</li>
+            <li><strong>RevenueCat:</strong> Abonelik yönetimi</li>
+            <li><strong>Apple:</strong> Uygulama içi satın almalar ve bildirimler</li>
+        </ul>
+
+        <h2>5. Veri Saklama ve Silme</h2>
+        <p>Verileriniz hesabınız aktif olduğu sürece saklanır. Hesabınızı silmek istediğinizde:</p>
+        <ul>
+            <li>Ayarlar → Hesabı Sil seçeneğini kullanın</li>
+            <li>Tüm bulut verileriniz kalıcı olarak silinecektir</li>
+            <li>Cihazınızdaki yerel veriler uygulamayı kaldırdığınızda silinir</li>
+        </ul>
+
+        <h2>6. Çocukların Gizliliği</h2>
+        <p>Uygulamamız 13 yaşından küçük çocuklara yönelik değildir. Bilerek 13 yaşından küçük çocuklardan kişisel bilgi
+            toplamayız.</p>
+
+        <h2>7. Değişiklikler</h2>
+        <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler olması durumunda sizi uygulama
+            içinden bilgilendireceğiz.</p>
+
+        <h2>8. İletişim</h2>
+        <p>Gizlilik politikamız hakkında sorularınız varsa bizimle iletişime geçebilirsiniz:</p>
+        <p><strong>E-posta:</strong> <a href="mailto:emrhncfc@icloud.com">emrhncfc@icloud.com</a></p>
+    </main>
+
+    <footer>
+        <p>© 2025 İlaç Hatırlatıcı. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html">Ana Sayfa</a> · <a href="terms.html">Kullanım Koşulları</a>
+        </p>
+    </footer>
+</body>
+
+</html>

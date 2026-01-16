@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlaç Hatırlatıcı - Sağlığınız İçin Akıllı Asistan</title>
+    <meta name="description"
+        content="İlaçlarınızı zamanında almayı asla unutmayın. Akıllı hatırlatmalar, stok takibi ve aile profilleri ile sağlığınızı kontrol altında tutun.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --secondary: #3B82F6;
+            --accent: #F59E0B;
+            --bg-dark: #000000;
+            --bg-card: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --gradient: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--bg-dark);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-2%, -2%) rotate(5deg);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: #6EE7B7;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .app-store-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Premium Section */
+        .premium {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.1) 50%, transparent 100%);
+        }
+
+        .premium-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 3rem;
+            border: 2px solid var(--primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .premium-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--gradient);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .premium-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .premium-features {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .premium-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .premium-feature:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features,
+            .premium {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .premium-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="logo">
+            <span class="logo-icon">💊</span>
+            <span>İlaç Hatırlatıcı</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Özellikler</a></li>
+            <li><a href="#premium">Premium</a></li>
+            <li><a href="privacy.html">Gizlilik</a></li>
+            <li><a href="terms.html">Koşullar</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>✨</span>
+                <span>iOS için şimdi mevcut</span>
+            </div>
+            <h1>İlaçlarınızı Asla Unutmayın</h1>
+            <p>Akıllı hatırlatmalar, stok takibi ve aile profilleri ile sağlığınızı kontrol altında tutun. Her doz
+                önemlidir.</p>
+            <a href="https://apps.apple.com" class="app-store-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                App Store'dan İndir
+            </a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Sağlığınız İçin Tasarlandı</h2>
+        <p class="section-subtitle">Her özellik, ilaç takibinizi kolaylaştırmak için özenle geliştirildi</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Akıllı Hatırlatmalar</h3>
+                <p>İlaç saatlerinizi asla kaçırmayın. Özelleştirilebilir bildirimler ile her dozu zamanında alın.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>Stok Takibi</h3>
+                <p>İlaçlarınız bitmeden önce uyarı alın. Otomatik stok sayımı ile hiç ilaçsız kalmayın.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>Aile Profilleri</h3>
+                <p>Tüm ailenizin ilaçlarını tek uygulamadan yönetin. Her üye için ayrı takip.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detaylı Raporlar</h3>
+                <p>İlaç uyumluluğunuzu takip edin. PDF olarak dışa aktarın ve doktorunuzla paylaşın.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Bulut Senkronizasyon</h3>
+                <p>Verileriniz güvende. Cihaz değiştirseniz bile tüm bilgilerinize ulaşın.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🩺</div>
+                <h3>Doktor Randevuları</h3>
+                <p>Doktor bilgilerinizi kaydedin ve randevularınızı takip edin.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="premium" id="premium">
+        <div class="premium-card">
+            <span class="premium-badge">⭐ PRO</span>
+            <h2>İlaç Hatırlatıcı Pro</h2>
+            <p style="color: var(--text-secondary);">Tüm premium özelliklere erişin</p>
+
+            <div class="premium-features">
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>Sınırsız ilaç ekleme</span>
+                </div>
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>Sınırsız aile profili</span>
+                </div>
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>PDF rapor dışa aktarma</span>
+                </div>
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>Gelişmiş istatistikler</span>
+                </div>
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>Bulut yedekleme</span>
+                </div>
+                <div class="premium-feature">
+                    <span class="check-icon">✓</span>
+                    <span>Reklamsız deneyim</span>
+                </div>
+            </div>
+
+            <a href="https://apps.apple.com" class="app-store-btn" style="width: 100%; justify-content: center;">
+                Şimdi Başla
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>İlaç Hatırlatıcı</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Sağlığınız için akıllı asistanınız.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Uygulama</h4>
+                <a href="#features">Özellikler</a>
+                <a href="#premium">Premium</a>
+                <a href="https://apps.apple.com">App Store</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Yasal</h4>
+                <a href="privacy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Koşulları</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>İletişim</h4>
+                <a href="mailto:emrhncfc@icloud.com">emrhncfc@icloud.com</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 İlaç Hatırlatıcı. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

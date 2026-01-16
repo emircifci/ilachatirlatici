@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanım Koşulları - İlaç Hatırlatıcı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --bg-dark: #000000;
+            --bg-card: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-card {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-card h3 {
+            color: #F87171;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 6rem 1rem 3rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <span>💊</span>
+            <span>İlaç Hatırlatıcı</span>
+        </a>
+    </nav>
+
+    <main class="content">
+        <h1>Kullanım Koşulları</h1>
+        <p class="last-updated">Son güncelleme: 16 Ocak 2025</p>
+
+        <p>İlaç Hatırlatıcı uygulamasını ("Uygulama") kullanarak aşağıdaki kullanım koşullarını kabul etmiş olursunuz.
+            Lütfen bu koşulları dikkatlice okuyunuz.</p>
+
+        <div class="warning-card">
+            <h3>⚠️ Önemli Uyarı</h3>
+            <p style="margin-bottom: 0;">Bu uygulama yalnızca hatırlatma amaçlıdır ve tıbbi tavsiye niteliği taşımaz.
+                İlaç kullanımı konusunda her zaman doktorunuza veya eczacınıza danışınız.</p>
+        </div>
+
+        <h2>1. Hizmet Tanımı</h2>
+        <p>İlaç Hatırlatıcı, kullanıcıların ilaç kullanım programlarını takip etmelerine ve hatırlatmalar almalarına
+            yardımcı olan bir mobil uygulamadır.</p>
+
+        <h2>2. Kabul ve Onay</h2>
+        <p>Uygulamayı indirerek ve kullanarak:</p>
+        <ul>
+            <li>Bu kullanım koşullarını kabul etmiş olursunuz</li>
+            <li>Gizlilik politikamızı okuduğunuzu ve anladığınızı beyan edersiniz</li>
+            <li>En az 13 yaşında olduğunuzu onaylarsınız</li>
+        </ul>
+
+        <h2>3. Kullanıcı Sorumlulukları</h2>
+        <p>Uygulamayı kullanırken aşağıdaki kurallara uymayı kabul edersiniz:</p>
+        <ul>
+            <li>Doğru ve güncel ilaç bilgileri girmek</li>
+            <li>Uygulamayı yalnızca kişisel kullanım için kullanmak</li>
+            <li>Hesap bilgilerinizi güvenli tutmak</li>
+            <li>Uygulamayı kötüye kullanmamak</li>
+        </ul>
+
+        <h2>4. Tıbbi Sorumluluk Reddi</h2>
+        <p>İlaç Hatırlatıcı:</p>
+        <ul>
+            <li>Tıbbi tavsiye, teşhis veya tedavi sağlamaz</li>
+            <li>Doktor veya eczacı önerilerinin yerini almaz</li>
+            <li>İlaç etkileşimlerini kontrol etmez</li>
+            <li>Hatırlatmaların zamanında ulaşacağını garanti etmez</li>
+        </ul>
+        <p><strong>Her zaman sağlık uzmanlarınızın tavsiyelerine uyunuz.</strong></p>
+
+        <h2>5. Premium Abonelik</h2>
+        <p>Premium abonelik hakkında:</p>
+        <ul>
+            <li>Ödemeler Apple tarafından işlenir</li>
+            <li>Abonelikler otomatik olarak yenilenir</li>
+            <li>İptal işlemleri App Store üzerinden yapılır</li>
+            <li>İptal etmeden en az 24 saat önce işlem yapılmalıdır</li>
+        </ul>
+
+        <h2>6. Fikri Mülkiyet</h2>
+        <p>Uygulama ve içeriği telif hakkı ile korunmaktadır:</p>
+        <ul>
+            <li>Tüm haklar saklıdır</li>
+            <li>İzinsiz kopyalama yasaktır</li>
+            <li>Ticari markalar korunmaktadır</li>
+        </ul>
+
+        <h2>7. Sorumluluk Sınırlaması</h2>
+        <p>Uygulama "olduğu gibi" sunulmaktadır. Aşağıdaki durumlardan sorumlu değiliz:</p>
+        <ul>
+            <li>Kaçırılan hatırlatmalar veya bildirimler</li>
+            <li>Veri kaybı</li>
+            <li>Üçüncü taraf hizmetlerindeki kesintiler</li>
+            <li>Dolaylı veya sonuç olarak ortaya çıkan zararlar</li>
+        </ul>
+
+        <h2>8. Değişiklikler</h2>
+        <p>Bu koşulları önceden bildirimde bulunmaksızın değiştirme hakkını saklı tutarız. Önemli değişiklikler uygulama
+            içinden bildirilecektir.</p>
+
+        <h2>9. Fesih</h2>
+        <p>Aşağıdaki durumlarda hesabınızı askıya alma veya sonlandırma hakkımız saklıdır:</p>
+        <ul>
+            <li>Kullanım koşullarının ihlali</li>
+            <li>Kötüye kullanım tespit edilmesi</li>
+            <li>Hizmetin sonlandırılması</li>
+        </ul>
+
+        <h2>10. Uygulanacak Hukuk</h2>
+        <p>Bu koşullar Türkiye Cumhuriyeti yasalarına tabidir.</p>
+
+        <h2>11. İletişim</h2>
+        <p>Kullanım koşulları hakkında sorularınız için:</p>
+        <p><strong>E-posta:</strong> <a href="mailto:emrhncfc@icloud.com">emrhncfc@icloud.com</a></p>
+    </main>
+
+    <footer>
+        <p>© 2025 İlaç Hatırlatıcı. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html">Ana Sayfa</a> · <a href="privacy.html">Gizlilik
+                Politikası</a></p>
+    </footer>
+</body>
+
+</html>
