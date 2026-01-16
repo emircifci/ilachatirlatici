@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Med Reminder</title>
+    <style>
+        :root {
+            --primary: #6366F1;
+            --bg: #0F0F1A;
+            --card: #1A1A2E;
+            --text: #F8FAFC;
+            --muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.1);
+            --success: #10B981;
+            --warning: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .lang-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--card);
+            border-radius: 16px;
+            justify-content: center;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), #A855F7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            color: var(--text);
+        }
+
+        p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .faq-a {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.1));
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="showLang('tr')">🇹🇷 Türkçe</button>
+            <button class="lang-btn" onclick="showLang('en')">🇬🇧 English</button>
+            <button class="lang-btn" onclick="showLang('de')">🇩🇪 Deutsch</button>
+            <button class="lang-btn" onclick="showLang('es')">🇪🇸 Español</button>
+            <button class="lang-btn" onclick="showLang('fr')">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="showLang('ar')">🇸🇦 العربية</button>
+            <button class="lang-btn" onclick="showLang('ja')">🇯🇵 日本語</button>
+            <button class="lang-btn" onclick="showLang('ko')">🇰🇷 한국어</button>
+            <button class="lang-btn" onclick="showLang('pt')">🇧🇷 Português</button>
+            <button class="lang-btn" onclick="showLang('it')">🇮🇹 Italiano</button>
+        </div>
+
+        <!-- TURKISH -->
+        <div id="tr" class="content active">
+            <div class="card">
+                <h1>Destek Merkezi</h1>
+                <p class="subtitle">Size yardımcı olmak için buradayız!</p>
+
+                <h2><span class="emoji">❓</span>Sık Sorulan Sorular</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Hatırlatmalar çalışmıyor, ne yapmalıyım?</div>
+                    <div class="faq-a">Ayarlar > Bildirimler'den bildirimlerin açık olduğundan emin olun. Ayrıca iPhone
+                        Ayarları > Bildirimler > İlaç Hatırlatıcım'dan izinleri kontrol edin.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Premium'u nasıl iptal ederim?</div>
+                    <div class="faq-a">App Store > Profil > Abonelikler bölümünden aboneliğinizi yönetebilirsiniz.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Verilerim güvende mi?</div>
+                    <div class="faq-a">Evet! Verileriniz endüstri standardı şifreleme ile korunmaktadır. Bulut
+                        senkronizasyonu opsiyoneldir.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Aile üyeleri ekleyemiyorum?</div>
+                    <div class="faq-a">Aile profilleri Premium özelliğidir. Premium'a geçerek sınırsız aile üyesi
+                        ekleyebilirsiniz.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Cihaz değiştirdim, verilerimi nasıl aktarırım?</div>
+                    <div class="faq-a">Hesabınızla giriş yaparak bulut senkronizasyonunu aktifleştirin. Yeni cihazda
+                        aynı hesapla giriş yapın, verileriniz otomatik senkronize olacak.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Hâlâ yardıma mı ihtiyacınız var?</h2>
+                        <p style="margin:5px 0 0">Bize yazın: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="en" class="content">
+            <div class="card">
+                <h1>Support Center</h1>
+                <p class="subtitle">We're here to help!</p>
+
+                <h2><span class="emoji">❓</span>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Reminders aren't working, what should I do?</div>
+                    <div class="faq-a">Make sure notifications are enabled in Settings > Notifications. Also check
+                        iPhone Settings > Notifications > Med Reminder for permissions.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How do I cancel Premium?</div>
+                    <div class="faq-a">You can manage your subscription in App Store > Profile > Subscriptions.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Is my data safe?</div>
+                    <div class="faq-a">Yes! Your data is protected with industry-standard encryption. Cloud sync is
+                        optional.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">I can't add family members?</div>
+                    <div class="faq-a">Family profiles is a Premium feature. Upgrade to Premium to add unlimited family
+                        members.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">I changed devices, how do I transfer my data?</div>
+                    <div class="faq-a">Enable cloud sync by logging in with your account. Sign in with the same account
+                        on your new device, and your data will sync automatically.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Still need help?</h2>
+                        <p style="margin:5px 0 0">Contact us: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GERMAN -->
+        <div id="de" class="content">
+            <div class="card">
+                <h1>Support-Center</h1>
+                <p class="subtitle">Wir sind hier, um zu helfen!</p>
+
+                <h2><span class="emoji">❓</span>Häufig gestellte Fragen</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Erinnerungen funktionieren nicht, was soll ich tun?</div>
+                    <div class="faq-a">Stellen Sie sicher, dass Benachrichtigungen in Einstellungen > Benachrichtigungen
+                        aktiviert sind. Überprüfen Sie auch iPhone Einstellungen > Benachrichtigungen >
+                        Medikamenten-Erinnerung.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Wie kündige ich Premium?</div>
+                    <div class="faq-a">Sie können Ihr Abonnement im App Store > Profil > Abonnements verwalten.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Sind meine Daten sicher?</div>
+                    <div class="faq-a">Ja! Ihre Daten sind mit branchenüblicher Verschlüsselung geschützt.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Brauchen Sie noch Hilfe?</h2>
+                        <p style="margin:5px 0 0">Kontaktieren Sie uns: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPANISH -->
+        <div id="es" class="content">
+            <div class="card">
+                <h1>Centro de Soporte</h1>
+                <p class="subtitle">¡Estamos aquí para ayudarte!</p>
+
+                <h2><span class="emoji">❓</span>Preguntas Frecuentes</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Los recordatorios no funcionan, ¿qué debo hacer?</div>
+                    <div class="faq-a">Asegúrate de que las notificaciones estén activadas en Configuración >
+                        Notificaciones.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿Cómo cancelo Premium?</div>
+                    <div class="faq-a">Puedes gestionar tu suscripción en App Store > Perfil > Suscripciones.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">¿Aún necesitas ayuda?</h2>
+                        <p style="margin:5px 0 0">Contáctanos: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FRENCH -->
+        <div id="fr" class="content">
+            <div class="card">
+                <h1>Centre d'Aide</h1>
+                <p class="subtitle">Nous sommes là pour vous aider!</p>
+
+                <h2><span class="emoji">❓</span>Questions Fréquentes</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Les rappels ne fonctionnent pas, que faire?</div>
+                    <div class="faq-a">Assurez-vous que les notifications sont activées dans Paramètres > Notifications.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Comment annuler Premium?</div>
+                    <div class="faq-a">Vous pouvez gérer votre abonnement dans App Store > Profil > Abonnements.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Besoin d'aide?</h2>
+                        <p style="margin:5px 0 0">Contactez-nous: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARABIC -->
+        <div id="ar" class="content" dir="rtl">
+            <div class="card">
+                <h1>مركز الدعم</h1>
+                <p class="subtitle">نحن هنا لمساعدتك!</p>
+
+                <h2><span class="emoji">❓</span>الأسئلة الشائعة</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">التذكيرات لا تعمل، ماذا أفعل؟</div>
+                    <div class="faq-a">تأكد من تفعيل الإشعارات في الإعدادات > الإشعارات.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">كيف ألغي بريميوم؟</div>
+                    <div class="faq-a">يمكنك إدارة اشتراكك في App Store > الملف الشخصي > الاشتراكات.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">هل تحتاج مساعدة؟</h2>
+                        <p style="margin:5px 0 0">تواصل معنا: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JAPANESE -->
+        <div id="ja" class="content">
+            <div class="card">
+                <h1>サポートセンター</h1>
+                <p class="subtitle">お手伝いします！</p>
+
+                <h2><span class="emoji">❓</span>よくある質問</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">リマインダーが動作しません。どうすればいいですか？</div>
+                    <div class="faq-a">設定 > 通知で通知が有効になっていることを確認してください。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">プレミアムをキャンセルするには？</div>
+                    <div class="faq-a">App Store > プロフィール > サブスクリプションで管理できます。</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">まだお困りですか？</h2>
+                        <p style="margin:5px 0 0">お問い合わせ: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KOREAN -->
+        <div id="ko" class="content">
+            <div class="card">
+                <h1>고객센터</h1>
+                <p class="subtitle">도움이 필요하신가요?</p>
+
+                <h2><span class="emoji">❓</span>자주 묻는 질문</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">알림이 작동하지 않아요. 어떻게 해야 하나요?</div>
+                    <div class="faq-a">설정 > 알림에서 알림이 활성화되어 있는지 확인하세요.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">프리미엄을 취소하려면?</div>
+                    <div class="faq-a">App Store > 프로필 > 구독에서 관리할 수 있습니다.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">도움이 더 필요하신가요?</h2>
+                        <p style="margin:5px 0 0">문의: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PORTUGUESE -->
+        <div id="pt" class="content">
+            <div class="card">
+                <h1>Central de Suporte</h1>
+                <p class="subtitle">Estamos aqui para ajudar!</p>
+
+                <h2><span class="emoji">❓</span>Perguntas Frequentes</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">Os lembretes não funcionam, o que fazer?</div>
+                    <div class="faq-a">Certifique-se de que as notificações estão ativadas em Configurações >
+                        Notificações.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Como cancelar o Premium?</div>
+                    <div class="faq-a">Você pode gerenciar sua assinatura em App Store > Perfil > Assinaturas.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Ainda precisa de ajuda?</h2>
+                        <p style="margin:5px 0 0">Contato: <a
+                                href="mailto:support@medreminder.app">support@medreminder.app</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITALIAN -->
+        <div id="it" class="content">
+            <div class="card">
+                <h1>Centro Assistenza</h1>
+                <p class="subtitle">Siamo qui per aiutarti!</p>
+
+                <h2><span class="emoji">❓</span>Domande Frequenti</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">I promemoria non funzionano, cosa devo fare?</div>
+                    <div class="faq-a">Assicurati che le notifiche siano attivate in Impostazioni > Notifiche.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Come annullo Premium?</div>
+                    <div class="faq-a">Puoi gestire l'abbonamento in App Store > Profilo > Abbonamenti.</div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h2 style="margin:0">Hai ancora bisogno di aiuto?</h2>
+                        <p style="margin:5px 0 0">Contattaci: <a
+                                href="mailto:cifciemirhan@icloud.com">cifciemirhan@icloud.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(lang).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
